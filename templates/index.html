@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TuneSnap</title>
+  <style>
+@font-face {
+    font-family: Building;
+    src: url("static/light.ttf");
+
+}
+
+
+
+    .circle {
+      
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: rgb(71, 95, 255) ;
+      display: flex;
+      justify-content: center;
+      border: 2px solid rgba(170, 160, 255, 0.2);
+      align-items: center;
+      box-shadow: 0 0 15px rgba(122, 153, 255, 1); /* Set the shadow properties */
+      transition: all 0.2s ease-in-out; /* Adjust timing and easing as needed */
+
+    }
+    
+    .circle p {
+      color: white;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .circle:hover {
+      transform: scale(1.2); /* Adjust scale factor */
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .circle:active {
+      animation: pulse 1s infinite alternate ease-in-out;
+    }
+  
+        #shazam-container {
+            text-align: center;
+
+           
+          }
+        
+
+        #shazam-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        #song-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #artist-name {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #shazam-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1db954;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+        .btn-click{
+          width: 500rem;
+          height: 200px;
+          border-radius: 50%;
+          background:none;
+          padding:0;
+          font-size: 2rem;
+          border:none;
+        }
+        .tap_to_snap{
+          font-family: Arial;
+          font-size: 4vw;
+
+          color:white ;
+        }
+
+    .overlay{
+        margin: 0;
+
+        font-family: 'Arial', sans-serif;
+        background-color: rgba(128, 128, 128, 0.1);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+  
+        width: 100%;
+        height: 100vh;
+    }
+    .face{
+      width: 30vh;
+      height: 43vh;
+    }
+    .main_stuff{
+      margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: rgba(128, 128, 128, 0.1);
+        color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        justify-content:center;
+        gap: 5rem;
+        width: 100%;
+        height: 100vh;
+    }
+    .zm2{
+      display: flex;
+      gap:1rem;
+      flex-direction: column;
+    }
+    .zm p{
+      color: rgba(255,255,255,0.8);
+      font-size: 20px;
+      margin: 0;
+      text-align: center;
+    }html {
+  scroll-behavior: smooth;
+}
+    .white-button {
+    
+      padding: 10px 5px;
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+      border: 1px solid rgba(33,33,33,0.2);
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+
+    /* Add hover effect */
+    .white-button:hover {
+      background-color: #333;
+      color: #fff;
+    } 
+    body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: rgb(34,108,91);
+    background: radial-gradient(circle, rgba(34,108,91,1) 0%, rgba(101,9,121,1) 35%, rgba(147,88,56,1) 59%, rgba(50,210,244,1) 100%);
+    background: radial-gradient(circle, #5c04ff 0%, #1255ad 35%, #0c10ff 59%, #3706ff 100%);
+    
+    animation: gradient 25s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 8em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+  }
+  .big-text{
+    font-size: 4vw;
+  }
+
+    @-webkit-keyframes AnimationName {
+    0%{background-position:43% 0%}
+    50%{background-position:58% 100%}
+    100%{background-position:43% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:43% 0%}
+    50%{background-position:58% 100%}
+    100%{background-position:43% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:43% 0%}
+    50%{background-position:58% 100%}
+    100%{background-position:43% 0%}
+}
+</style>
+</head>
+<body>
+  <div class="main_all" id="main_all">
+
+  <div class="main_stuff">
+    <div class="zm">
+        <div class="zm2">
+          <h1 class="tap_to_snap">The song whisperer.</h1>
+          <p>
+            Find out the next song you're obsessing over.<br>We easily fulfill your urges of searching for the next sound.<br>Hear it, snap it, love it.
+          </p><br>
+          <button class="white-button" onclick='window.location.href="#overlay"'>What? Show me!</button>
+          </div>
+
+        </div>
+          <img src="/static/face.png" class="face">      
+      </div>
+<div class="overlay" id="overlay">
+
+  <input type="file" id="audioFileInput" style="display: none;" />
+ 
+  <h1 class="big-text" id="biggie">Tap to snap</h1>
+  <label for="audioFileInput" class="custom-button"></label>
+  <div id="shazam-container" >
+      <h1 id="artist_name" style="display: none;color:white;">Kanye</h1>
+      <h1 id="result" style="display:none;"></h1>
+      <!-- TODO: add image animation here -->
+      <div class="circle" id="circle">
+        <button class="btn-click" id="btn-click">
+          <h1 id="speaker_icon">🔈</h1>
+      </button>
+     </div>
+  
+     <br>
+     <p id="sml-notif" style="display: none;">Searching...</p>
+  
+    </div>
+
+  </label>
+  <br><br><br>
+
+  </div>
+  <br><br><br>
+  <div id="kd">
+
+
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+ </div>
+ </div>
+
+</body>
+
+
+<script src="/static/script.js">
+</script>
+  
+
+</body>
+</html>
